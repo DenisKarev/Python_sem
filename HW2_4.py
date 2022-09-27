@@ -6,13 +6,6 @@
 # -> [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
 # -> 15
 
-# fi = open('params.txt')
-# par1 = fi.readline()
-# par2 = fi.readline()
-# fi.close
-# n1 = par1.strip('\n')
-# n2 = par2.strip('\n')
-
 num_elems = int(input('Enter a number N: '))
 n1 = int(input('Enter a position 1: '))
 n2 = int(input('Enter a position 2: '))
