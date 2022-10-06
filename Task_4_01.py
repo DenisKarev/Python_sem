@@ -12,11 +12,12 @@ str_nums = '*2 -101 200* 100.' # input('Enter numbers: ')
 # VARiant II
 list_2 = []
 for x in str_nums.split():
-    if x.replace('-','').isdigit():
+    if x.strip(',*.;:').replace('-','').isdigit():
         list_2.append(x.strip(',*.;:'))
 
-print(f'Min: {min(list_2, key=int)}')
-print(f'Max: {max(list_2, key=int)}')
+print(list_2)
+print(f'Min: {min(list_2, key=int)}')   # min in string list becouse of key
+print(f'Max: {max(list_2, key=int)}')   # max in string list becouse of key
 
 
 # VARiant III
