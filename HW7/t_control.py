@@ -1,10 +1,13 @@
 from t_in_out import t_db_init, t_menu_inp, t_show_nums, t_input_new, t_import_f, t_export_csv, t_export_json
-from t_menu import m10, m2, m3, m4, m_que, m_exp, m_empty
+from t_menu import m10, m2, m3, m4, m_que, m_exp, m_empty, m_db_ne
 
 
 def t_menu(m: int) -> int:
-    if m == 10:
-        t_db_init()
+    if m == 11:
+        if t_db_init() == -1:
+            print(m_db_ne)
+        m = 10
+    elif m == 10:
         print(m10, end='')
         m = t_menu_inp('01234', m_que)
     elif m == 1:

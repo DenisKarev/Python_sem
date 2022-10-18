@@ -6,6 +6,10 @@ t_type = {'0':'неопределен', '1':'Домашний', '2':'Мобил�
 def t_db_init():
     global t_data
     t_data = t_database_read()
+    if t_data == -1:
+        t_data = []
+        return -1
+    return
 
 def t_menu_inp(val: str, que: str) -> int:
     """
@@ -80,5 +84,4 @@ def t_show_nums():
     elif len(t_data) == 1:
         return -1
     else:
-        t_data = t_database_read()
-        return 1
+        return -1
