@@ -2,12 +2,15 @@ from genericpath import exists
 
 
 def t_file_read(file: str) -> list:
-    with open(file, 'r', encoding='utf-8') as data:   # , encoding='utf-8'
-        ret_data = []
-        for line in data.readlines():
-            line = ''.join(line.replace('\n', ''))
-            ret_data.append(line)
-    return ret_data
+    if exists(file):
+        with open(file, 'r', encoding='utf-8') as data:   # , encoding='utf-8'
+            ret_data = []
+            for line in data.readlines():
+                line = ''.join(line.replace('\n', ''))
+                ret_data.append(line)
+        return ret_data
+    else:
+        return -1
 
 
 def t_file_write(file: str, data) -> list:

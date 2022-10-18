@@ -42,15 +42,18 @@ def t_input_new():
 
 def t_import_f(fname: str):
         global t_data
+
         data = t_file_read(fname)
-        for line in data:
-            res_line = f'{len(t_data)},'
-            if line[0] == '\ufeff':
-                line = line[1:]
-            res_line += line
-            t_data.append(res_line)
-            t_database_update(res_line)
-                
+        if data == -1:
+            return -1
+        else:
+            for line in data:
+                res_line = f'{len(t_data)},'
+                if line[0] == '\ufeff':
+                    line = line[1:]
+                res_line += line
+                t_data.append(res_line)
+                t_database_update(res_line)
         return 1
 
 
@@ -81,7 +84,7 @@ def t_show_nums():
                 id, na, fa, ot, numt, typ = temp[:6]
                 print(f'{id:4} {na:15} {fa:15} {ot:15} {numt:20} {t_type[typ]:8}')
         return 10
-    elif len(t_data) == 1:
-        return -1
+    # elif len(t_data) == 1:
+    #     return -1
     else:
         return -1

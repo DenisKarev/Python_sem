@@ -1,5 +1,5 @@
 from t_in_out import t_db_init, t_menu_inp, t_show_nums, t_input_new, t_import_f, t_export_csv, t_export_json
-from t_menu import m10, m2, m3, m4, m_que, m_exp, m_empty, m_db_ne
+from t_menu import m10, m2, m3, m4, m_que, m_exp, m_empty, m_db_ne, m_fnf
 
 
 def t_menu(m: int) -> int:
@@ -26,6 +26,9 @@ def t_menu(m: int) -> int:
         else:
             # проверка ввода?
             m = t_import_f(inp)
+            if m == -1:
+                print(m_fnf)
+                m = 10
     elif m == 4:
         print(m4)
         m = t_menu_inp('012', m_que)
