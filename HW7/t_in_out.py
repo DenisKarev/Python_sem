@@ -49,7 +49,9 @@ def t_import_f(fname: str):
         else:
             for line in data:
                 res_line = f'{len(t_data)},'
-                if line[0] == '\ufeff':
+                if line == '':
+                    continue
+                elif line[0] == '\ufeff':
                     line = line[1:]
                 res_line += line
                 t_data.append(res_line)
